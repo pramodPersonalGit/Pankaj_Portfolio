@@ -1,37 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavigationProps {
   scrolled: boolean;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ scrolled }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const navLinks = ['About', 'Skills', 'Experience', 'Certifications', 'Contact'];
 
-  return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className="text-2xl font-serif font-bold text-accent tracking-wider">
-          PS<span className="text-secondary">.</span>
-        </a>
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-        <div className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="text-sm uppercase tracking-widest text-[#E0E0E0] hover:text-accent transition-colors duration-300 relative group"
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? 'bg-background/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-4 md:py-6'
+        }`}
+      >
+        <div className="max-w-6xl mx-auto px-4 md:px-8 relative flex justify-center items-center h-10">
+          
+          {/* Mobile Menu Button - positioned absolutely on mobile so it doesn't break centering */}
+          <div className="absolute right-4 md:hidden">
+            <button 
+              onClick={toggleMenu}
+              className="text-white hover:text-accent focus:outline-none p-2"
+              aria-label="Toggle menu"
             >
-              {link}
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+
+          {/* Desktop Navigation Centered */}
+          <div className="hidden md:flex space-x-12">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                className="text-sm uppercase tracking-widest text-[#E0E0E0] hover:text-accent transition-colors duration-300 relative group py-2"
+              >
+                {link}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[#1B1B1B]/95 backdrop-blur-xl flex flex-col items-center justify-center md:hidden"
+          >
+            <div className="flex flex-col space-y-8 text-center mt-10">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  className="text-2xl font-serif text-white hover:text-accent transition-colors duration-300"
+                >
+                  {link}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

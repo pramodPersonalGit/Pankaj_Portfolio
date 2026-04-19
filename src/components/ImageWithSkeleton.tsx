@@ -38,6 +38,7 @@ const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
         <img
           src={src}
           alt={alt}
+          loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => setError(true)}
           className={`w-full h-full object-cover transition-opacity duration-700 z-10 relative ${
