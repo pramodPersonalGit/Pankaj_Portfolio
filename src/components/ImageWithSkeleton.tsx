@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface ImageWithSkeletonProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   skeletonClassName?: string;
@@ -13,12 +13,13 @@ const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
 }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [prevSrc, setPrevSrc] = useState(src);
 
-  // Reset states if src changes
-  useEffect(() => {
+  if (src !== prevSrc) {
     setLoaded(false);
     setError(false);
-  }, [src]);
+    setPrevSrc(src);
+  }
 
   return (
     <div className={`relative overflow-hidden w-full h-full ${className}`}>
