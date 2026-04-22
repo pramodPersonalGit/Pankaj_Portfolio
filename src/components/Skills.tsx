@@ -92,7 +92,7 @@ const Skills: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.15, duration: 0.6, type: "spring", stiffness: 80 }}
-                className="group relative bg-secondary/10 backdrop-blur-xl rounded-3xl p-8 border border-text/5 hover:border-accent/40 shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-secondary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/5"
               >
                 {/* Huge Background Icon */}
                 {category.bgIcon}

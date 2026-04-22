@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="bg-secondary/20 backdrop-blur-lg border border-accent/10 rounded-3xl p-8 md:p-16 shadow-2xl overflow-hidden">
+        <div className="bg-gradient-to-br from-secondary/20 to-primary/10 backdrop-blur-lg rounded-3xl p-8 md:p-16 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-white/5">
           <div className="flex flex-col items-center text-center">
             
             {/* Contact Info */}
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                   href="mailto:pv51350@gmail.com" 
                   className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-2xl ring-1 ring-white/10 group-hover:ring-accent group-hover:-translate-y-3">
                     <Mail size={28} />
                   </div>
                   <span className="font-medium tracking-wide break-all sm:break-normal text-sm md:text-base">pv51350@gmail.com</span>
@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
                   rel="noopener noreferrer" 
                   className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-2xl ring-1 ring-white/10 group-hover:ring-accent group-hover:-translate-y-3">
                     <LinkedInIcon size={28} />
                   </div>
                   <span className="font-medium tracking-wide text-sm md:text-base">LinkedIn</span>
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                   rel="noopener noreferrer" 
                   className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-2xl ring-1 ring-white/10 group-hover:ring-accent group-hover:-translate-y-3">
                     <GitHubIcon size={28} />
                   </div>
                   <span className="font-medium tracking-wide text-sm md:text-base">GitHub</span>

@@ -72,7 +72,7 @@ const Certifications: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: (index % 4) * 0.1, duration: 0.6, type: 'spring', stiffness: 60 }}
-              className="group relative bg-secondary/10 backdrop-blur-xl rounded-3xl p-6 pt-16 flex flex-col items-center text-center border border-text/5 hover:border-accent/40 shadow-xl transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-gradient-to-br from-secondary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-6 pt-16 flex flex-col items-center text-center shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/5"
             >
               {/* Floating Badge popping out of the card */}
               <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 z-20">
