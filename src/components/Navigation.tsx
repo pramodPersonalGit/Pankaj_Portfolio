@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 interface NavigationProps {
   scrolled: boolean;
@@ -8,6 +9,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const navLinks = ['About', 'Skills', 'Experience', 'Certifications', 'Contact'];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -33,17 +35,26 @@ const Navigation: React.FC<NavigationProps> = ({ scrolled }) => {
           </div>
 
           {/* Desktop Navigation Centered */}
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex space-x-12 items-center">
             {navLinks.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-sm uppercase tracking-widest text-[#E0E0E0] hover:text-accent transition-colors duration-300 relative group py-2"
+                className="text-sm uppercase tracking-widest text-text/80 hover:text-accent transition-colors duration-300 relative group py-2"
               >
                 {link}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-accent/10 transition-colors text-accent ml-4"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
         </div>
       </nav>
@@ -56,7 +67,7 @@ const Navigation: React.FC<NavigationProps> = ({ scrolled }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#1B1B1B]/95 backdrop-blur-xl flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center md:hidden"
           >
             <div className="flex flex-col space-y-8 text-center mt-10">
               {navLinks.map((link, i) => (
@@ -67,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({ scrolled }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1, duration: 0.4 }}
-                  className="text-2xl font-serif text-white hover:text-accent transition-colors duration-300"
+                  className="text-2xl font-serif text-text hover:text-accent transition-colors duration-300"
                 >
                   {link}
                 </motion.a>

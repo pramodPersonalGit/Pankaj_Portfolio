@@ -5,7 +5,7 @@ import aboutMeImg from '../assets/images/about-me.jpg';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 relative bg-[#1B1B1B]">
+    <section id="about" className="py-32 relative bg-background transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -23,20 +23,20 @@ const About: React.FC = () => {
                 alt="Pankaj Sharma - Profile" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-20"></div>
+              <div className="absolute inset-0 bg-text/10 group-hover:bg-transparent transition-colors duration-500 z-20"></div>
             </div>
           </div>
 
           {/* Text Side */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 relative inline-block">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-text mb-6 relative inline-block">
               About Me
               <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-accent/70"></span>
             </h2>
             
-            <div className="space-y-6 text-[#E0E0E0] text-lg font-light leading-relaxed mt-6">
+            <div className="space-y-6 text-text/80 text-lg font-light leading-relaxed mt-6">
               <p>
-                With over <strong className="text-white font-medium">7 years of experience</strong> in Salesforce development, I specialize in designing scalable solutions and evaluating complex requirements to deliver successful projects.
+                With over <strong className="text-text font-medium">7 years of experience</strong> in Salesforce development, I specialize in designing scalable solutions and evaluating complex requirements to deliver successful projects.
               </p>
               <p>
                 My expertise spans both development and configuration. I am deeply experienced in APEX, Triggers, Data Migration, Lightning Web Components (LWC), and integrating external web systems with Salesforce using REST web services.
@@ -48,11 +48,11 @@ const About: React.FC = () => {
             
             <div className="mt-10 grid grid-cols-2 gap-6">
               <div className="glass-panel p-6 border-l-4 border-l-accent">
-                <h3 className="text-3xl font-serif font-bold text-white mb-1">7+</h3>
+                <h3 className="text-3xl font-serif font-bold text-text mb-1">7+</h3>
                 <p className="text-accent text-sm uppercase tracking-wider">Years Experience</p>
               </div>
               <div className="glass-panel p-6 border-l-4 border-l-accent">
-                <h3 className="text-3xl font-serif font-bold text-white mb-1">12</h3>
+                <h3 className="text-3xl font-serif font-bold text-text mb-1">12</h3>
                 <p className="text-accent text-sm uppercase tracking-wider">Certifications</p>
               </div>
             </div>

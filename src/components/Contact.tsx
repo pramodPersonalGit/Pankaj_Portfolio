@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
   <svg 
@@ -38,11 +39,14 @@ const GitHubIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 const Contact: React.FC = () => {
+  const { theme } = useTheme();
   return (
-    <section id="contact" className="py-32 relative bg-[#1B1B1B] overflow-hidden">
+    <section id="contact" className="py-32 relative bg-background overflow-hidden transition-colors duration-300">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full mix-blend-screen filter blur-[100px] opacity-20"></div>
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full filter blur-[100px] opacity-20 ${
+          theme === 'dark' ? 'mix-blend-screen' : 'mix-blend-multiply'
+        }`}></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
@@ -55,7 +59,7 @@ const Contact: React.FC = () => {
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-6xl font-serif font-bold text-white mb-6"
+                className="text-4xl md:text-6xl font-serif font-bold text-text mb-6 transition-colors duration-300"
               >
                 Let's Work Together
               </motion.h2>
@@ -64,7 +68,7 @@ const Contact: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-[#E0E0E0] text-xl font-light mb-12"
+                className="text-text/70 text-xl font-light mb-12 transition-colors duration-300"
               >
                 I'm currently available for new opportunities. Whether you have a question or just want to say hi, feel free to reach out through any of the platforms below!
               </motion.p>
@@ -76,9 +80,9 @@ const Contact: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                   href="mailto:pv51350@gmail.com" 
-                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                  className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
                     <Mail size={28} />
                   </div>
                   <span className="font-medium tracking-wide break-all sm:break-normal text-sm md:text-base">pv51350@gmail.com</span>
@@ -92,9 +96,9 @@ const Contact: React.FC = () => {
                   href="https://www.linkedin.com/in/pankaj-sharma-68b378180/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEJdBAd6kT7quqiJPak5%2FKQ%3D%3D" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                  className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
                     <LinkedInIcon size={28} />
                   </div>
                   <span className="font-medium tracking-wide text-sm md:text-base">LinkedIn</span>
@@ -108,9 +112,9 @@ const Contact: React.FC = () => {
                   href="https://github.com/pankaj-tech07" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                  className="flex flex-col items-center space-y-4 text-text/80 hover:text-accent transition-all duration-300 group"
                 >
-                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-text/5 group-hover:border-accent group-hover:-translate-y-1">
                     <GitHubIcon size={28} />
                   </div>
                   <span className="font-medium tracking-wide text-sm md:text-base">GitHub</span>

@@ -1,24 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 import heroBgImg from '../assets/images/hero-bg.jpg';
 
 const Hero: React.FC = () => {
+  const { theme } = useTheme();
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image / Layers */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image & Video / Layers */}
+      <div className="absolute inset-0 z-0 h-full w-full">
+        {/* Requirement #2: Persistent Background Image */}
         <img 
           src={heroBgImg} 
           alt="Background" 
-          className="w-full h-full object-cover filter grayscale opacity-10"
+          className="absolute inset-0 w-full h-full object-cover filter grayscale opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background"></div>
+        
+        {/* Cinematic Video Layer */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={`w-full h-full object-cover grayscale transition-all duration-700 relative z-10 ${
+            theme === 'dark' ? 'brightness-[0.4] opacity-40' : 'brightness-[0.8] opacity-10'
+          }`}
+        >
+          <source 
+            src="https://assets.mixkit.co/videos/preview/mixkit-abstract-dark-ink-swirls-1175-large.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background opacity-60 z-20"></div>
       </div>
       
       <div className="absolute inset-0 z-0 opacity-30">
         {/* Using a subtle pattern or simple blurred circles for effect */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse-slow"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+        <div className={`absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full filter blur-3xl opacity-50 animate-pulse-slow ${
+          theme === 'dark' ? 'mix-blend-multiply' : 'mix-blend-screen'
+        }`}></div>
+        <div className={`absolute top-1/3 right-1/4 w-96 h-96 bg-secondary rounded-full filter blur-3xl opacity-50 animate-pulse-slow ${
+          theme === 'dark' ? 'mix-blend-multiply' : 'mix-blend-screen'
+        }`} style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="container max-w-6xl mx-auto px-4 z-10 relative">
@@ -37,7 +61,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-text mb-6 tracking-tight transition-colors duration-300"
           >
             Pankaj Sharma
           </motion.h1>

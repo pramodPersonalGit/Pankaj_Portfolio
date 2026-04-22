@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ImageWithSkeleton from './ImageWithSkeleton';
 import { Award } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const Certifications: React.FC = () => {
+  const { theme } = useTheme();
   const certifications = [
     'Salesforce Certified Platform Developer I',
     'Salesforce Certified Platform Developer II',
@@ -24,11 +26,13 @@ const Certifications: React.FC = () => {
   };
 
   return (
-    <section id="certifications" className="py-32 relative bg-background overflow-hidden">
+    <section id="certifications" className="py-32 relative bg-background overflow-hidden transition-colors duration-300">
       
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-[50vw] h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
-      <div className="absolute -left-32 top-1/3 w-96 h-96 bg-secondary rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-pulse-slow"></div>
+      <div className={`absolute -left-32 top-1/3 w-96 h-96 bg-secondary rounded-full filter blur-[100px] opacity-20 animate-pulse-slow ${
+        theme === 'dark' ? 'mix-blend-screen' : 'mix-blend-multiply'
+      }`}></div>
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
         
@@ -45,7 +49,7 @@ const Certifications: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
+            className="text-4xl md:text-5xl font-serif font-bold text-text mb-6 transition-colors duration-300"
           >
             Recognized <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary italic">Excellence</span>
           </motion.h2>
@@ -54,7 +58,7 @@ const Certifications: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#E0E0E0] text-lg font-light leading-relaxed"
+            className="text-text/70 text-lg font-light leading-relaxed transition-colors duration-300"
           >
             Showcasing continuous learning and officially verified expertise across the global Salesforce ecosystem.
           </motion.p>
@@ -68,7 +72,7 @@ const Certifications: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: (index % 4) * 0.1, duration: 0.6, type: 'spring', stiffness: 60 }}
-              className="group relative bg-[#1F1614]/80 backdrop-blur-xl rounded-3xl p-6 pt-16 flex flex-col items-center text-center border border-white/5 hover:border-accent/40 shadow-xl hover:shadow-[0_20px_40px_rgba(62,39,35,0.4)] transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-secondary/10 backdrop-blur-xl rounded-3xl p-6 pt-16 flex flex-col items-center text-center border border-text/5 hover:border-accent/40 shadow-xl transition-all duration-500 hover:-translate-y-2"
             >
               {/* Floating Badge popping out of the card */}
               <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 z-20">
@@ -76,7 +80,7 @@ const Certifications: React.FC = () => {
                 <div className="absolute inset-0 bg-accent rounded-full filter blur-[20px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 scale-110"></div>
                 
                 {/* The actual Image wrapper */}
-                <div className="relative w-full h-full bg-white rounded-[2.5rem] p-2 ring-4 ring-black shadow-[0_10px_20px_rgba(0,0,0,0.5)] group-hover:ring-accent/50 group-hover:scale-110 transition-all duration-500 overflow-hidden">
+                <div className="relative w-full h-full bg-white rounded-[2.5rem] p-2 ring-4 ring-background shadow-[0_10px_20px_rgba(0,0,0,0.5)] group-hover:ring-accent/50 group-hover:scale-110 transition-all duration-500 overflow-hidden">
                   <ImageWithSkeleton 
                     src={getImageUrl(index)} 
                     alt={cert}
@@ -88,7 +92,7 @@ const Certifications: React.FC = () => {
 
               {/* Sub-Card Content */}
               <div className="mt-8 flex-1 flex flex-col justify-center w-full z-10">
-                <h3 className="text-[#E0E0E0] text-lg font-medium leading-relaxed group-hover:text-white transition-colors duration-300 font-serif px-2">
+                <h3 className="text-text/80 text-lg font-medium leading-relaxed group-hover:text-text transition-colors duration-300 font-serif px-2">
                   {cert}
                 </h3>
               </div>

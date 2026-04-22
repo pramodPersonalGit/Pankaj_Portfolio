@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
+import CursorGlow from "./components/CursorGlow";
 
 // Lazy loading the sections to improve initial load performance
 const About = React.lazy(() => import("./components/About"));
@@ -28,8 +30,10 @@ function App() {
   );
 
   return (
-    <div className="bg-background min-h-screen text-text selection:bg-secondary selection:text-white pb-0">
-      <Navigation scrolled={scrolled} />
+    <ThemeProvider>
+      <div className="bg-background min-h-screen text-text selection:bg-secondary selection:text-white pb-0">
+        <CursorGlow />
+        <Navigation scrolled={scrolled} />
 
       <main>
         <Hero />
@@ -61,7 +65,8 @@ function App() {
           © {new Date().getFullYear()} Pankaj Sharma. All rights reserved.
         </p>
       </footer>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
