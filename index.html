@@ -1,10 +1,19 @@
 <!doctype html>
-<html lang="en">
+  <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Pankaj_Portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>temp-app</title>
+    <title>Pankaj Sharma | Salesforce Portfolio</title>
+    <script>
+      // Blocking script to prevent flash of unstyled content/theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <script type="module" crossorigin src="/Pankaj_Portfolio/assets/index-wBkM2yEn.js"></script>
     <link rel="modulepreload" crossorigin href="/Pankaj_Portfolio/assets/proxy-BUlknnuH.js">
     <link rel="modulepreload" crossorigin href="/Pankaj_Portfolio/assets/use-transform-CUSBQG3B.js">
