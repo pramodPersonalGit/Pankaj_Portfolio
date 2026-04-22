@@ -1,6 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Briefcase, Globe, Send } from 'lucide-react';
+import { Mail } from 'lucide-react';
+
+const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect width="4" height="12" x="2" y="9"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
+
+const GitHubIcon = ({ size = 20 }: { size?: number }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+    <path d="M9 18c-4.51 2-5-2-7-2"/>
+  </svg>
+);
 
 const Contact: React.FC = () => {
   return (
@@ -12,97 +47,76 @@ const Contact: React.FC = () => {
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
         <div className="bg-secondary/20 backdrop-blur-lg border border-accent/10 rounded-3xl p-8 md:p-16 shadow-2xl overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="flex flex-col items-center text-center">
             
-            {/* Contact Info Side */}
-            <div>
+            {/* Contact Info */}
+            <div className="max-w-2xl">
               <motion.h2 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
+                className="text-4xl md:text-6xl font-serif font-bold text-white mb-6"
               >
                 Let's Work Together
               </motion.h2>
               <motion.p 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-[#E0E0E0] text-lg font-light mb-10 max-w-sm"
+                className="text-[#E0E0E0] text-xl font-light mb-12"
               >
-                I'm currently available for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                I'm currently available for new opportunities. Whether you have a question or just want to say hi, feel free to reach out through any of the platforms below!
               </motion.p>
 
-              <div className="space-y-6">
-                <a href="mailto:pankaj@example.com" className="flex items-center space-x-4 text-[#E0E0E0] hover:text-white transition-colors duration-300 group">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-300 shadow-lg">
-                    <Mail size={20} />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-12 sm:gap-x-4 md:gap-x-8 w-full">
+                <motion.a 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  href="mailto:pv51350@gmail.com" 
+                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                >
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                    <Mail size={28} />
                   </div>
-                  <span className="font-medium tracking-wide">hello@pankajsharma.dev</span>
-                </a>
+                  <span className="font-medium tracking-wide break-all sm:break-normal text-sm md:text-base">pv51350@gmail.com</span>
+                </motion.a>
                 
-                <a href="#" className="flex items-center space-x-4 text-[#E0E0E0] hover:text-white transition-colors duration-300 group">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-300 shadow-lg">
-                    <Briefcase size={20} />
+                <motion.a 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  href="https://www.linkedin.com/in/pankaj-sharma-68b378180/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEJdBAd6kT7quqiJPak5%2FKQ%3D%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                >
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                    <LinkedInIcon size={28} />
                   </div>
-                  <span className="font-medium tracking-wide">LinkedIn Profile</span>
-                </a>
+                  <span className="font-medium tracking-wide text-sm md:text-base">LinkedIn</span>
+                </motion.a>
 
-                <a href="#" className="flex items-center space-x-4 text-[#E0E0E0] hover:text-white transition-colors duration-300 group">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-300 shadow-lg">
-                    <Globe size={20} />
+                <motion.a 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  href="https://github.com/pankaj-tech07" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex flex-col items-center space-y-4 text-[#E0E0E0] hover:text-accent transition-all duration-300 group"
+                >
+                  <div className="w-16 h-16 bg-primary/40 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-all duration-500 shadow-xl border border-white/5 group-hover:border-accent group-hover:-translate-y-1">
+                    <GitHubIcon size={28} />
                   </div>
-                  <span className="font-medium tracking-wide">GitHub Profile</span>
-                </a>
+                  <span className="font-medium tracking-wide text-sm md:text-base">GitHub</span>
+                </motion.a>
               </div>
             </div>
-
-            {/* Contact Form Side */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-[#1F1614]/80 p-8 rounded-2xl border border-white/5"
-            >
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-accent mb-2 uppercase tracking-widest pl-1">Name</label>
-                  <input 
-                    type="text" 
-                    id="name"
-                    className="w-full bg-transparent border-b border-accent/30 text-white pb-3 focus:outline-none focus:border-accent transition-colors duration-300 placeholder-white/20 px-1"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-accent mb-2 uppercase tracking-widest pl-1">Email</label>
-                  <input 
-                    type="email" 
-                    id="email"
-                    className="w-full bg-transparent border-b border-accent/30 text-white pb-3 focus:outline-none focus:border-accent transition-colors duration-300 placeholder-white/20 px-1"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-accent mb-2 uppercase tracking-widest pl-1">Message</label>
-                  <textarea 
-                    id="message"
-                    rows={4}
-                    className="w-full bg-transparent border-b border-accent/30 text-white pb-3 focus:outline-none focus:border-accent transition-colors duration-300 placeholder-white/20 resize-none px-1"
-                    placeholder="Write your message here..."
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full bg-accent text-[#1B1B1B] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-white hover:shadow-[0_0_20px_rgba(215,204,200,0.4)] transition-all duration-300 flex items-center justify-center space-x-2"
-                >
-                  <span>Send Message</span>
-                  <Send size={18} />
-                </button>
-              </form>
-            </motion.div>
 
           </div>
         </div>

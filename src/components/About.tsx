@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ImageWithSkeleton from './ImageWithSkeleton';
+import aboutMeImg from '../assets/images/about-me.jpg';
 
 const About: React.FC = () => {
   return (
@@ -15,11 +17,13 @@ const About: React.FC = () => {
           {/* Image Side */}
           <div className="w-full md:w-1/2 relative group">
             <div className="absolute inset-0 bg-primary translate-x-4 translate-y-4 rounded-2xl group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
-            {/* Using a placeholder for now since we don't have the real image, 
-                ideally this uses ImageWithSkeleton later. */}
-            <div className="relative aspect-square md:aspect-[4/5] bg-secondary rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
-              <span className="text-white/20 text-4xl font-serif">PS.</span>
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div className="relative aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+              <ImageWithSkeleton 
+                src={aboutMeImg} 
+                alt="Pankaj Sharma - Profile" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-20"></div>
             </div>
           </div>
 

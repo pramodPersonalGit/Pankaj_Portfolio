@@ -1,11 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import heroBgImg from '../assets/images/hero-bg.jpg';
 
 const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Gradient / Effects */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-secondary/20 to-background"></div>
+      {/* Background Image / Layers */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBgImg} 
+          alt="Background" 
+          className="w-full h-full object-cover filter grayscale opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-background"></div>
+      </div>
+      
       <div className="absolute inset-0 z-0 opacity-30">
         {/* Using a subtle pattern or simple blurred circles for effect */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse-slow"></div>
