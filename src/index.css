@@ -4,9 +4,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: #FFFBF2;
+  --color-text: #3E2723;
+  --color-primary: #5D4037;
+  --color-secondary: #D7CCC8;
+  --color-accent: #5D4037;
+}
+
+.dark {
+  --color-background: #1B1B1B;
+  --color-text: #FFFFFF;
+  --color-primary: #3E2723;
+  --color-secondary: #5D4037;
+  --color-accent: #D7CCC8;
+}
+
 @layer base {
   body {
-    @apply bg-background text-text font-sans antialiased overflow-x-hidden;
+    @apply bg-background text-text font-sans antialiased overflow-x-hidden transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {

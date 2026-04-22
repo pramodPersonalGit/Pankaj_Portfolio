@@ -63,6 +63,9 @@ This project is configured with **GitHub Actions** for continuous deployment. Ev
 
 You can monitor the deployment progress in the **Actions** tab of your GitHub repository.
 
+> [!IMPORTANT]
+> Ensure that GitHub Pages is set to deploy from the **gh-pages** branch in your repository settings (**Settings > Pages > Branch**). This branch will be automatically created after the first successful deployment.
+
 ### Manual Deployment
 If you prefer to deploy manually, you can still use the provided script:
 ```bash

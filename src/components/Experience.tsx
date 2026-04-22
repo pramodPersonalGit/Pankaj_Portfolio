@@ -48,14 +48,14 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-32 relative bg-[#1B1B1B]">
+    <section id="experience" className="py-32 relative bg-background transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <div className="text-center mb-20 max-w-2xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
+            className="text-4xl md:text-5xl font-serif font-bold text-text mb-6 transition-colors duration-300"
           >
             Professional Experience
           </motion.h2>
@@ -78,7 +78,7 @@ const Experience: React.FC = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-[#1B1B1B] transform -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10 shadow-[0_0_10px_rgba(215,204,200,0.5)]"></div>
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-background transform -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10 shadow-[0_0_10px_rgba(215,204,200,0.5)] transition-colors duration-300"></div>
                 
                 {/* Content Card */}
                 <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${
@@ -86,9 +86,9 @@ const Experience: React.FC = () => {
                 }`}>
                   <div className="glass-panel p-6 hover:border-accent/30 transition-colors duration-300">
                     <span className="text-accent text-sm font-medium uppercase tracking-wider mb-2 block">{exp.cloud}</span>
-                    <h3 className="text-2xl font-serif font-bold text-white mb-1">{exp.role}</h3>
-                    <h4 className="text-lg text-[#E0E0E0] mb-4">@ {exp.company}</h4>
-                    <p className="text-[#A0A0A0] font-light leading-relaxed">
+                    <h3 className="text-2xl font-serif font-bold text-text mb-1 transition-colors duration-300">{exp.role}</h3>
+                    <h4 className="text-lg text-text/80 mb-4 transition-colors duration-300">@ {exp.company}</h4>
+                    <p className="text-text/60 font-light leading-relaxed transition-colors duration-300">
                       {exp.description}
                     </p>
                   </div>

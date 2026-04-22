@@ -4,14 +4,15 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: '#3E2723', // Dark Chocolate
-        secondary: '#5D4037', // Mocha
-        accent: '#D7CCC8', // Cream
-        background: '#1B1B1B',
-        text: '#FFFFFF',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        background: 'var(--color-background)',
+        text: 'var(--color-text)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
