@@ -55,9 +55,16 @@ To run this project locally:
 
 ## 📦 Deployment
 
-This project is configured for automated deployment to **GitHub Pages**.
+### Automated Deployment (Recommended)
+This project is configured with **GitHub Actions** for continuous deployment. Every time you push changes to the `main` branch, the site is automatically:
+1.  Built using the latest source code.
+2.  De-risked and sanitized (only build artifacts are exposed).
+3.  Deployed to the `gh-pages` branch.
 
-To deploy the latest version:
+You can monitor the deployment progress in the **Actions** tab of your GitHub repository.
+
+### Manual Deployment
+If you prefer to deploy manually, you can still use the provided script:
 ```bash
 npm run deploy
 ```
